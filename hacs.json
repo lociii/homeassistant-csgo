@@ -1,0 +1,5 @@
+{
+    "name": "CS:GO game state",
+    "homeassistant": "0.100",
+    "iot_class": "local_push"
+}

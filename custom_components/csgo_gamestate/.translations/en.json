@@ -1,0 +1,18 @@
+{
+    "config": {
+        "title": "CS:GO game state listener",
+        "step": {
+            "user": {
+                "title": "Set up the CS:GO game state listener",
+                "description": "Are you sure you want to set up the CS:GO game state listener webhook?"
+            }
+        },
+        "abort": {
+            "one_instance_allowed": "Only a single instance is necessary.",
+            "not_internet_accessible": "Your Home Assistant instance needs to be accessible from the internet to receive messages from CS:GO."
+        },
+        "create_entry": {
+            "default": "To send events to Home Assistant, you will need to setup the game state integration on your CS:GO client or server.\n\nFill in the following info:\n\n\"uri\" \"{webhook_url}\"\n- Method: POST\n\nSee [the documentation]({docs_url}) for further details."
+        }
+    }
+}
