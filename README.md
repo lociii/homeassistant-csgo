@@ -17,4 +17,4 @@ Please read [info.md](info.md) carefully to understand how this integration is s
 ## How can I install it?
 
 The easiest way to install the integration is by using [Home Assistant Community Store HACS](https://hacs.netlify.com/).
-For now, you have to [add the repository yourself](https://hacs.xyz/docs/navigation/settings) - chose type "Integration".
+Just search for "csgo".
