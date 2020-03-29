@@ -8,7 +8,7 @@
 
 ## What does it do?
 
-This integration listens to game state changes and fires relevant events in Home Assistant. These can then be used to change your lighting or start some fireworks :-)
+This integration [listens to game state changes](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration) and fires relevant events in Home Assistant. These can then be used to change your lighting or start some fireworks :-)
 
 Convert your desk into a big Counter-Strike tournament stage!
 
