@@ -77,5 +77,5 @@ Have fun!
 
 ## Example usages
 
-* [Control lights](https://www.youtube.com/watch?v=kEM54QmAMlw)
+* [Control lights](https://www.youtube.com/watch?v=kEM54QmAMlw) ([Community thread explaing the config used in the video](https://community.home-assistant.io/t/counter-strike-global-offensive-game-state-integration/175505))
 * [Start real fire when bomb explodes](https://automatedhome.party/2020/03/28/summoning-actual-fire-or-other-automations-when-the-bomb-goes-off-in-csgo-via-home-assistant/)
