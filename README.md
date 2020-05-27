@@ -17,4 +17,4 @@ Please read [info.md](info.md) carefully to understand how this integration is s
 ## How can I install it?
 
 The easiest way to install the integration is by using [Home Assistant Community Store HACS](https://hacs.netlify.com/).
-Just search for "csgo".
+Just search for "csgo" and install the integration. Then head over to "Configuration -> Integrations", hit the + button and search again for "csgo". During the setup process, the webhook URL to use in your CS:GO config will be shown.
