@@ -1,0 +1,18 @@
+{
+    "config": {
+        "title": "CS: GO spillstatuslytter",
+        "step": {
+            "user": {
+                "title": "Sett opp CS: GO spillstatuslytter",
+                "description": "Er du sikker på at du vil konfigurere CS: GO spillstatuslytter webhook?"
+            }
+        },
+        "abort": {
+            "one_instance_allowed": "Bare en enkelt forekomst er nødvendig.",
+            "not_internet_accessible": "Home Assistant-forekomsten din må være tilgjengelig fra internett for å motta meldinger fra CS: GO."
+        },
+        "create_entry": {
+            "default": "For å sende hendelser til Home Assistant, må du konfigurere spilltilstandsintegrasjonen på din CS: GO-klient eller server.\n\nFyll ut følgende info:\n\n\"uri\" \"{webhook_url}\"\n\nSe [the documentation]({docs_url}) for ytterligere detaljer."
+        }
+    }
+}
