@@ -6,7 +6,7 @@ This integration makes Counter-Strike: Global Offensive game state changes avail
 
 Go to the integrations (Configuration -> Integrations) page and add the "CS:GO game state listener" integration.
 
-During the setup process, the integration will create a webhook and show the uri parameter for the CS:GO configuration. 
+During the setup process, the integration will create a webhook and show the uri parameter for the CS:GO configuration.
 Make sure to copy this code to your clipboard.
 
 ## Setup - CS:GO
@@ -21,7 +21,7 @@ Open that directory and add a file called **gamestate_integration_homeassistant.
 Add the following content and replace the "uri" with the one copied during the integration setup:
 
 ```
-"HomeAssistant Integration v.1"
+"HomeAssistant Integration v.2"
 {
  "uri" "https://hooks.nabu.casa/xyz"
  "timeout" "5.0"
@@ -30,7 +30,8 @@ Add the following content and replace the "uri" with the one copied during the i
  "heartbeat" "15.0"
  "data"
  {
-   "round" "1" // round phase, bomb state and round winner
+   "round"          "1" // round phase, bomb state and round winner
+   "player_state"   "1" // player state (used for health)
  }
 }
 ```
@@ -68,6 +69,14 @@ The bomb exploded
 ### csgo_game_stopped
 
 The game has been closed
+
+### csgo_health_low
+
+Player health is between 11 and 30
+
+### csgo_health_critical
+
+Player health is 10 or lower
 
 ## Automations
 

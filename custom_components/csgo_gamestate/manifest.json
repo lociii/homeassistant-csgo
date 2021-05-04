@@ -5,7 +5,7 @@
   "version": "v0.2",
   "requirements": [],
   "dependencies": ["webhook"],
-  "codeowners": ["@lociii"],
+  "codeowners": ["@lociii", "@davidramiro"],
   "config_flow": true,
   "quality_scale": "platinum"
 }
