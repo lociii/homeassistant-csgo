@@ -13,7 +13,7 @@
             "not_internet_accessible": "Ihre Home Assistant-Instanz muss über das Internet erreichbar sein, um Daten von CS:GO zu empfangen."
         },
         "create_entry": {
-            "default": "Um Ereignisse an den Home Assistant zu senden, müssen Sie die Spielstatusintegration auf Ihrem CS:GO-Client oder -Server einrichten.\n\nFüllen Sie die folgenden Informationen aus:\n\n\"uri\" \"{webhook_url}\"\n\Finden Sie weitere Details in der Dokumentation [the documentation]({docs_url})."
+            "default": "Um Ereignisse an den Home Assistant zu senden, müssen Sie die Spielstatusintegration auf Ihrem CS:GO-Client oder -Server einrichten.\n\nFüllen Sie die folgenden Informationen aus:\n\n\"uri\" \"{webhook_url}\"\n\Finden Sie weitere Details in der [Dokumentation]({docs_url})."
         }
     }
 }
