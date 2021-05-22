@@ -1,19 +1,18 @@
-  
 {
-    "config": {
-        "title": "CS:GO-Spielstatus-Listener",
-        "step": {
-            "user": {
-                "title": "Einrichten des CS:GO-Spielstatus-Listeners",
-                "description": "Sind Sie sicher, dass Sie den CS:GO-Spielstatus-Listeners Webhook einrichten möchten?"
-            }
-        },
-        "abort": {
-            "one_instance_allowed": "Nur eine einzelne Instanz wird benötigt.",
-            "not_internet_accessible": "Ihre Home Assistant-Instanz muss über das Internet erreichbar sein, um Daten von CS:GO zu empfangen."
-        },
-        "create_entry": {
-            "default": "Um Ereignisse an den Home Assistant zu senden, müssen Sie die Spielstatusintegration auf Ihrem CS:GO-Client oder -Server einrichten.\n\nFüllen Sie die folgenden Informationen aus:\n\n\"uri\" \"{webhook_url}\"\n\Finden Sie weitere Details in der [Dokumentation]({docs_url})."
-        }
+  "config": {
+    "title": "CS:GO Spielstatus-Listener",
+    "step": {
+      "user": {
+        "title": "Einrichten des CS:GO Spielstatus-Listeners",
+        "description": "Sind Sie sich sicher, dass Sie den CS:GO Spielstatus-Listener einrichten möchten?"
+      }
+    },
+    "abort": {
+      "one_instance_allowed": "Es ist nur eine Instanz nötig.",
+      "not_internet_accessible": "Ihre Home Assistant Instanz muss aus dem Internet erreichbar sein, um die Kommunikation mit CS:GO zu ermöglichen."
+    },
+    "create_entry": {
+      "default": "Um Events an Home Assistant zu senden, müssen Sie die Game State integration auf Ihrem CS:GO Server oder Client einrichten.\n\nFügen Sie die folgenden Informationen ein:\n\n\"uri\" \"{webhook_url}\"\n\nSehen Sie in [die Dokumentation]({docs_url}) für weitere Details."
     }
+  }
 }
