@@ -78,6 +78,14 @@ Player health is between 11 and 30
 
 Player health is 10 or lower
 
+### csgo_round_win_ct
+
+CT team won the round
+
+### csgo_round_win_t
+
+T team won the round
+
 ## Automations
 
 Use these events to trigger automations that control your lights, sounds, fireworks, etc.

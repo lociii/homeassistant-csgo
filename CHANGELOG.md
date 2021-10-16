@@ -4,10 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2021-10-16
+### Added
+- Added events for CT and T win
+
 ## [1.2.0] - 2021-05-04
 ### Added
 - Added events for player health state
-- Added German translation
+- Added German and Russian translation
 - Added version key to `manifest.json`
 
 ## [1.1.0] - 2020-10-01
