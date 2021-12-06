@@ -11,7 +11,7 @@ Make sure to copy this code to your clipboard.
 
 ## Setup - CS:GO
 
-CS:GO has an integrated game state reporting engine that we will use no update Home Assistant.
+CS:GO has an [integrated game state reporting engine](https://www.reddit.com/r/GlobalOffensive/comments/cjhcpy/game_state_integration_a_very_large_and_indepth/) that we will use no update Home Assistant.
 
 The configuration will be added to your CS:GO config directory.
 [How to find my config directory](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Game_State_Integration#Locating_CS:GO_Install_Directory)
@@ -77,6 +77,10 @@ Player health is between 11 and 30
 ### csgo_health_critical
 
 Player health is 10 or lower
+
+### csgo_player_flashed
+
+Player flashed intensity as integer from 0 (not flashed) to 255 (fully flashed)
 
 ### csgo_round_win_ct
 
