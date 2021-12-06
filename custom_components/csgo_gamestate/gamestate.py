@@ -119,8 +119,7 @@ class GameState:
             data = {
                 "flash_value": value
             }
-            self._hass.bus.async_fire(self.EVENT_PLAYER_FLASHED, data)
-            # self._fire_event(event=self.EVENT_PLAYER_FLASHED)
+            self._fire_event(event=self.EVENT_PLAYER_FLASHED, data=data)
 
         # remember current state
         self._flashed_state = value
@@ -141,6 +140,6 @@ class GameState:
         # remember current state
         self._bomb_state = value
 
-    def _fire_event(self, event: str):
+    def _fire_event(self, event: str, data: dict = None):
         _LOGGER.debug(f"csgo fired event: {event}")
-        self._hass.bus.async_fire(event)
+        self._hass.bus.async_fire(event, data)
