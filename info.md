@@ -4,9 +4,11 @@ This integration makes Counter-Strike: Global Offensive game state changes avail
 
 ## Setup - Home Assistant
 
-Go to the integrations (Configuration -> Integrations) page and add the "CS:GO game state listener" integration.
+First make sure that your instance is reachable via URL. Go to `Configuration > Settings > General` and set `Internal URL` and `External URL`.
 
-During the setup process, the integration will create a webhook and show the uri parameter for the CS:GO configuration.
+Then go to `Configuration > Devices and Services > Integrations`. Press the `Add integration` button and add the "CS:GO game state listener" integration.
+
+During the setup process, the integration will create a webhook and show the URI parameter for the CS:GO configuration.
 Make sure to copy this code to your clipboard.
 
 ## Setup - CS:GO
