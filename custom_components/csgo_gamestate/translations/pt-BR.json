@@ -1,0 +1,18 @@
+{
+    "config": {
+        "title": "Monitor de estado do jogo CS:GO",
+        "step": {
+            "user": {
+                "title": "Configurar o monitor do estado do jogo CS:GO",
+                "description": "Tem certeza de que deseja configurar o webhook do monitor de estado do jogo CS:GO?"
+            }
+        },
+        "abort": {
+            "one_instance_allowed": "Apenas uma única instância é necessária.",
+            "not_internet_accessible": "Sua instância do Home Assistant precisa ter acesso externo para receber informações do CS:GO."
+        },
+        "create_entry": {
+            "default": "Para enviar eventos para o Home Assistant, você precisará configurar a integração do estado do jogo em seu cliente ou servidor CS:GO.\n\nPreencha as seguintes informações:\n\n\"uri\" \"{webhook_url}\"\n\nAcesse [the documentation]({docs_url}) para mais detalhes."
+        }
+    }
+}
