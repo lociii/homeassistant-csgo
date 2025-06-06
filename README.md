@@ -1,10 +1,16 @@
 # !!!!! DEPRECATED !!!!!
 
+## Alternative overwolf integration
+
 I've built a new integration to support many more games through the Overwolf platform.
 
 Search for "Overwolf Webhook" in HACS.
 
 Source and support on https://github.com/lociii/homeassistant-overwolf-status and https://github.com/lociii/overwolf-homeassistant-webhook.
+
+## Maintained fork
+
+For all of you that still want to stick to the Counter-Strike only integration, please use the fork provided by `yeheskel2016` on https://github.com/yeheskel2016/homeassistant-csgo
 
 # CS:GO game state integration for Home Assistant
 
