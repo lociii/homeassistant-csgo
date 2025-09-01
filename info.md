@@ -1,10 +1,214 @@
-# !!!!! DEPRECATED !!!!!
 
-I've built a new integration to support many more games through the Overwolf platform.
+# Examples of automation that play nice with Yeelight 
+Automations:
+```
+- id: cs2_round_freeze
+  alias: CS2 – Freezetime starts
+  trigger:
+  - platform: event
+    event_type: csgo_round_freeze
+  condition:
+  - condition: state
+    entity_id: light.lightname
+    state: 'on'
+  action:
+  - service: script.turn_on
+    target:
+      entity_id: script.csgo_freezetime
+- id: cs2_round_started
+  alias: CS2 – Round starts
+  trigger:
+  - platform: event
+    event_type: csgo_round_started
+  condition:
+  - condition: state
+    entity_id: light.lightname
+    state: 'on'
+  action:
+  - service: script.turn_on
+    target:
+      entity_id: script.csgo_begin_end
+- id: cs2_bomb_planted
+  alias: CS2 – Bomb planted
+  trigger:
+  - platform: event
+    event_type: csgo_bomb_planted
+  condition:
+  - condition: state
+    entity_id: light.lightname
+    state: 'on'
+  action:
+  - service: script.turn_on
+    target:
+      entity_id: script.csgo_bomb_planted
+- id: cs2_bomb_exploded
+  alias: CS2 – Bomb exploded
+  trigger:
+  - platform: event
+    event_type: csgo_bomb_exploded
+  condition:
+  - condition: state
+    entity_id: light.lightname
+    state: 'on'
+  action:
+  - service: script.turn_on
+    target:
+      entity_id: script.csgo_bomb_exploded
+- id: cs2_bomb_defused
+  alias: CS2 – Bomb defused
+  trigger:
+  - platform: event
+    event_type: csgo_bomb_defused
+  condition:
+  - condition: state
+    entity_id: light.lightname
+    state: 'on'
+  action:
+  - service: script.turn_on
+    target:
+      entity_id: script.csgo_bomb_defused
+- id: cs2_game_stopped
+  alias: CS2 – Game stopped
+  trigger:
+  - platform: event
+    event_type: csgo_game_stopped
+  condition:
+  - condition: state
+    entity_id: light.lightname
+    state: 'on'
+  action:
+  - service: script.turn_on
+    target:
+      entity_id: script.csgo_game_stopped
+- id: cs2_player_flashed
+  alias: CS2 – Player flashed
+  trigger:
+  - platform: event
+    event_type: csgo_player_flashed
+  condition:
+  - condition: state
+    entity_id: light.lightname
+    state: 'on'
+  action:
+  - service: script.turn_on
+    target:
+      entity_id: script.csgo_flashloop
+```
 
-Search for "Overwolf Webhook" in HACS.
+Scripts:
+```
+csgo_freezetime:
+  alias: CS2 – Freezetime
+  sequence:
+    - service: yeelight.set_mode          # ensure any flow stops
+      data:
+        entity_id: light.lightname
+        mode: normal
+    - service: light.turn_on
+      target:
+        entity_id: light.lightname
+      data:
+        rgb_color: [83, 52, 235]
+        transition: 0.5
 
-Source and support on https://github.com/lociii/homeassistant-overwolf-status and https://github.com/lociii/overwolf-homeassistant-webhook.
+csgo_begin_end:
+  alias: CS2 – Round start / end
+  sequence:
+    - service: yeelight.set_mode
+      data:
+        entity_id: light.lightname
+        mode: normal
+    - service: light.turn_on
+      target:
+        entity_id: light.lightname
+      data:
+        rgb_color: [255, 244, 229]        # neutral warm-white
+        transition: 1
+
+csgo_bomb_planted:
+  alias: CS2 – Bomb planted
+  sequence:
+    - service: yeelight.set_mode          # stop any previous flow
+      data:
+        entity_id: light.lightname
+        mode: normal
+    - service: light.turn_on              # orange hint
+      target:
+        entity_id: light.lightname
+      data:
+        rgb_color: [255, 190, 0]
+        transition: 0.5
+    - delay: "1"
+    - service: script.turn_on             # start infinite flash
+      target:
+        entity_id: script.csgo_flashloop
+
+csgo_bomb_defused:
+  alias: CS2 – Bomb defused
+  sequence:
+    - service: yeelight.set_mode
+      data:
+        entity_id: light.lightname
+        mode: normal
+    - service: light.turn_on
+      target:
+        entity_id: light.lightname
+      data:
+        rgb_color: [0, 255, 0]
+        transition: 0.5
+
+csgo_bomb_exploded:
+  alias: CS2 – Bomb exploded
+  sequence:
+    - service: yeelight.set_mode
+      data:
+        entity_id: light.lightname
+        mode: normal
+    - service: light.turn_on
+      target:
+        entity_id: light.lightname
+      data:
+        rgb_color: [255, 0, 0]
+        transition: 0.5
+
+csgo_game_stopped:
+  alias: CS2 – Game stopped
+  sequence:
+    - service: yeelight.set_mode
+      data:
+        entity_id: light.lightname
+        mode: normal             # restore normal mode
+    - service: yeelight.set_mode # ensure “normal” scene
+      data:
+        entity_id: light.lightname
+        mode: normal
+
+# -------------  Infinite white strobe (one API call) -------------
+csgo_flashloop:
+  alias: CS2 – Flash loop (infinite)
+  mode: restart
+  sequence:
+    # 1. Make absolutely sure any old flow is gone
+    - service: yeelight.set_mode
+      data:
+        entity_id: light.lightname
+        mode: normal
+    - delay: 0.2          # tiny pause so the bulb is ready
+
+    # 2. Start a brand-new infinite strobe handled by the bulb itself
+    - service: yeelight.start_flow
+      data:
+        entity_id: light.lightname
+        count: 0           # 0 = loop forever
+        action: stay       # stay in last frame when we later stop it
+        transitions:
+          # 0.4 s bright white …
+          - RGBTransition: [255, 255, 255, 400, 100]
+          # … then 0.4 s fully off (sleep = LEDs off)
+          - SleepTransition: 400
+```
+
+***This example was using a Yeelight integration, so some changes may be needed to fit to other smart lights.. ***
 
 # CS:GO game state integration for Home Assistant
 

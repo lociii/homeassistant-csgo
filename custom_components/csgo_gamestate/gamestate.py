@@ -1,7 +1,7 @@
 import json
 import logging
 
-from homeassistant.helpers.typing import HomeAssistantType
+from homeassistant.core import HomeAssistant   # <— new, replaces HomeAssistantType
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -25,28 +25,29 @@ class GameState:
 
     EVENT_PLAYER_FLASHED = "csgo_player_flashed"
 
-    def __init__(self, hass: HomeAssistantType):
+    def __init__(self, hass: HomeAssistant):
         self._hass = hass
-
         self._round_state = None
         self._bomb_state = None
         self._health_state = None
         self._flashed_state = None
 
     def load(self, data: str):
-        data = json.loads(data)
-        self._round_state = data["round_state"]
-        self._bomb_state = data["bomb_state"]
-        self._health_state = data["health_state"]
-        self._flashed_state = data["flashed_state"]
+        obj = json.loads(data)
+        self._round_state = obj["round_state"]
+        self._bomb_state = obj["bomb_state"]
+        self._health_state = obj["health_state"]
+        self._flashed_state = obj["flashed_state"]
 
     def dump(self) -> str:
-        return json.dumps(
-            dict(round_state=self._round_state, bomb_state=self._bomb_state, health_state=self._health_state, flashed_state=self._flashed_state)
-        )
+        return json.dumps({
+            "round_state":   self._round_state,
+            "bomb_state":    self._bomb_state,
+            "health_state":  self._health_state,
+            "flashed_state": self._flashed_state,
+        })
 
     def update(self, data: dict):
-        # handle active game state
         if "round" in data:
             if "phase" in data["round"] or "win_team" in data["round"]:
                 self._check_round_state(value=data["round"])
@@ -55,7 +56,6 @@ class GameState:
         if "player" in data:
             self._check_health_state(value=data["player"]["state"]["health"])
             self._check_player_flashed(value=data["player"]["state"]["flashed"])
-        # no game state submitted, must have ended
         else:
             self._reset()
 

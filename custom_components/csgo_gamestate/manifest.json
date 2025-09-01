@@ -2,10 +2,10 @@
   "domain": "csgo_gamestate",
   "name": "CS:GO game state listener",
   "documentation": "https://github.com/lociii/homeassistant-csgo/",
-  "version": "v2.0.0",
+  "version": "v2.0.1",
   "requirements": [],
   "dependencies": ["webhook"],
-  "codeowners": ["@lociii", "@davidramiro"],
+  "codeowners": ["@lociii", "@davidramiro", "@yeheskel2016"],
   "config_flow": true,
   "quality_scale": "platinum"
 }

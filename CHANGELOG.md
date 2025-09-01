@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2025-09-01
+### Changed
+- Fix deprecated imports that broke this integration to work since May 2025 update of HA
+- This integration is now back to working state and maintained by @yeheskel2016
+
 ## [2.0.0] - 2023-01-31
 ### Breaking
 - This integration is deprecated and discontinued. It's replaced by the "Overwolf Webhook" integration that supports a broad range of games.
